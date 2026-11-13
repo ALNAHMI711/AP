@@ -1,0 +1,13 @@
+services:
+  api:
+    build: ./backend
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - .env
+    environment:
+      ENVIRONMENT: development
+      LIVE_TRADING_ENABLED: "false"
+    volumes:
+      - ./backend/app:/app/app:ro
+    restart: unless-stopped
