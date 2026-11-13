@@ -47,3 +47,13 @@
 - `docs/ROADMAP.md`: المراحل التالية.
 
 لا توجد ضمانات ربح؛ يجب تضمين الرسوم والانزلاق والخسائر المحتملة في الاختبارات.
+## تشغيل Backend محليًا (مرحلة التطوير)
+
+الخيار المفضل الآن هو **التشغيل المحلي**؛ السحابة ليست مطلوبة للتطوير ويمكن إضافتها لاحقًا دون تغيير الواجهة.
+
+- دليل التشغيل: [`docs/LOCAL_DEVELOPMENT.md`](docs/LOCAL_DEVELOPMENT.md)
+- FastAPI API: `backend/app/main.py`
+- تشغيل Python: `pip install -r backend/requirements.txt` ثم `uvicorn app.main:app --app-dir backend --reload --host 127.0.0.1 --port 8000`
+- تشغيل Docker: `docker compose up --build` (المنفذ مربوط محليًا على 127.0.0.1 فقط)
+- فحص الحالة: `/api/health` و`/api/readiness`، والتوثيق `/docs`.
+- التداول الحقيقي وLIVE ومفاتيح API غير مفعلة في هذه المرحلة.
